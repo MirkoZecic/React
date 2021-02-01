@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import CardItem from './CardItem';
+import React, { useState, useEffect } from 'react';
+import CardList from './CardList';
 import Calendar from 'react-calendar'
 import './Cards.css';
 import 'react-calendar/dist/Calendar.css';
@@ -7,12 +7,7 @@ import 'react-calendar/dist/Calendar.css';
 function Cards() {
   const [date1, onChange1] = useState(new Date());
   const [date2, onChange2] = useState(new Date());
-
-  const onChange = date => {
-    onChange(date);
-  }
-
-  const [cardItems, setCardItems] = useState([{
+  const [originalCardItems, setOriginal] = useState([{
     src: 'images/img-9.jpg',
     text: 'Explore the hidden waterfall deep inside the Amazon Jungle',
     label: 'Adventure',
@@ -49,31 +44,58 @@ function Cards() {
     dateto: new Date(2021, 4, 8)
   }]);
 
+  const [cardItems, setCardItems] = useState(originalCardItems);
+
+  useEffect(() => {
+    handleList()
+  }, [date1, date2]);
+
+  function checkDate() {
+    return (date1 >= date2)
+  }
+
+  const handleList = () => {
+    if (!checkDate()) {
+      const result = originalCardItems.filter(cardItem => {
+        return (date1 <= cardItem.datefrom && date2 >= cardItem.dateto)
+      });
+      document.getElementById("warning").style.display = "none";
+      setCardItems(
+        result
+      )
+    }
+    else {
+      document.getElementById("warning").style.display = "block";
+      setCardItems(originalCardItems);
+    }
+  }
+
   return (
     <div className='cards'>
       <h1>Check out these epic Destinations!</h1>
       <h2>Or filter by date</h2>
 
-      <div className="flex-container">
-        <div className="flex-item"><h2>Start Date</h2>
+      <div className="calendar-container">
+        <div className="calendar-item"><h2>Start Date</h2>
           <Calendar
             onChange={onChange1}
             value={date1}
           />
-          {console.log("DATUM1: " + date1)}
         </div>
-        <div className="flex-item"><h2>Start Date</h2>
+        <div className="calendar-item"><h2>End Date</h2>
           <Calendar
             onChange={onChange2}
             value={date2}
           />
-          {console.log("DATUM2: " + date2)}
         </div>
-      </div>
 
+      </div>
+      <div id="warning">
+        <h1 className="warningText">"Start Drom" must be before "End Date"!</h1>
+      </div>
       <div className='cards__container'>
         <div className='cards__wrapper'>
-          <CardItem cardItems={cardItems} />
+          <CardList cardItems={cardItems} />
         </div>
       </div>
 

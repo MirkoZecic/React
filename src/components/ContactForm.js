@@ -18,7 +18,7 @@ function ContactForm() {
         if (question.length < 10) {
             rezultat += "Question must contain at least 10 characters!\n"
         }
-        if (rezultat == "ERROR\n\n") {
+        if (rezultat === "ERROR\n\n") {
             return true;
         } else {
             alert(rezultat);

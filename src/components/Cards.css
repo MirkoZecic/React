@@ -6,24 +6,34 @@
 h1 {
   text-align: center;
 }
-.flex-container {
+
+#warning{
+  display: none;
+}
+
+.warningText{
+  color: red;
+}
+
+.calendar-container {
   display: flex;
   width: 80%;
   margin: 0 auto;
 }
-.flex-item{
-margin:20px auto;
-width: 70%;
+
+.calendar-item{
+  margin:20px auto;
+  width: 70%;
 }
+
 .react-calendar{
   margin: auto;
 }
+
 .btnDiv{
   margin: auto;
 }
 .cards__container {
-  display: flex;
-  flex-flow: column;
   align-items: center;
   max-width: 1120px;
   width: 90%;
@@ -31,19 +41,16 @@ width: 70%;
 }
 
 .cards__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 100px;
   position: relative;
   margin: 50px 0 45px;
 }
 
-.cards__items {
-  margin-bottom: 24px;
-}
-
-.cards__item {
-  display: flex;
-  flex: 1;
-  margin: 0 1rem;
-  border-radius: 10px;
+.card-item {
+  width: 40%;
+  margin: 0 auto;
 }
 
 .cards__item__link {
@@ -127,17 +134,17 @@ width: 70%;
 }
 
 @media only screen and (max-width: 1024px) {
-  .cards__item {
-    margin-bottom: 2rem;
+  .card-item {
+    width: 90%;
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  .flex-container {
+  .calendar-container {
     display: block;    
   }
 
-  .flex-item{
+  .calendar-item{
     width: 100%;
   }
 }
