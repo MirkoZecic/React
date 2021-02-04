@@ -53,22 +53,9 @@ function ContactForm() {
                 <input type="tel" placeholder="Mobile number" name="MobileNumber" />
                 <textarea name="Question" placeholder="Question" />
 
-                <input type="submit" />
+                <input type="submit" className="submit"/>
             </form >
         </>
-
-        /* <div>
-             <form>
-                 <h1>If you have any questions, feel free to contact us!</h1>
-                 <p>Enter your name:</p>
-                 <input id="name" type="text" placeholder="Name"/>
-                 <p>Enter your email:</p>
-                 <input id="email" type="email" placeholder="Email"/>
-                 <p>Enter your question:</p>
-                 <input id="name" type="textarea" placeholder="Question"/>
-             </form>
-         </div>*/
-
 
     )
 }

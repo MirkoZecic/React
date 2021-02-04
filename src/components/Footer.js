@@ -1,10 +1,31 @@
 import React from 'react';
 import './Footer.css';
-import { Button } from './Button';
+import emailjs from 'emailjs-com';
 import { Link } from 'react-router-dom';
 
 
 function Footer() {
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    var email = e.target.email.value;
+
+    if (!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))) {
+     alert("Email must be in valid format!");
+     return;
+    }
+
+    emailjs.sendForm('service_rqzjw9v', 'slanjeTemplate', e.target, 'user_HZykz9X0oAPh7hLknywvx')
+      .then((result) => {
+        alert("Successfully subscribed to newslatter!");
+      }, (error) => {
+        console.log(error.text);
+      });
+    e.target.reset();
+
+  }
+
   return (
     <div className='footer-container'>
       <section className='footer-subscription'>
@@ -15,14 +36,15 @@ function Footer() {
           You can unsubscribe at any time.
         </p>
         <div className='input-areas'>
-          <form>
+          <form onSubmit={sendEmail}>
             <input
               className='footer-input'
               name='email'
               type='email'
               placeholder='Your Email'
             />
-            <Button buttonStyle='btn--outline'>Subscribe</Button>
+            <input type="submit" className="submit" />
+
           </form>
         </div>
       </section>
@@ -69,7 +91,7 @@ function Footer() {
             <i class='fas fa-plane-departure' />
             </Link>
           </div>
-          <small class='website-rights'>TRVL © 2020</small>
+          <small class='website-rights'>FLYAGENCY © 2021</small>
           <div class='social-icons'>
             <Link
               class='social-icon-link facebook'

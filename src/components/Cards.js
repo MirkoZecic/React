@@ -93,7 +93,7 @@ function Cards() {
       <div id="warning">
         <h1 className="warningText">"Start Drom" must be before "End Date"!</h1>
       </div>
-      <div className='cards__container'>
+      <div className='cards__container' >
         <div className='cards__wrapper'>
           <CardList cardItems={cardItems} />
         </div>

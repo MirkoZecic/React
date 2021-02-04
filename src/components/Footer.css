@@ -34,10 +34,14 @@
   font-size: 20px;
 }
 
+.submit:hover{
+  background-color: #797979;
+  transition: 0.3s ease-out;
+}
+
 .footer-input {
   padding: 8px 20px;
   border-radius: 2px;
-  margin-right: 10px;
   outline: none;
   border: none;
   font-size: 18px;
