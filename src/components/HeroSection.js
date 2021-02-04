@@ -9,7 +9,7 @@ function HeroSection() {
       <h1>ADVENTURE AWAITS</h1>
       <p>What are you waiting for?</p>
       <div className='hero-btns'>
-        <a href="#warning" className="link-button">GET STARTED</a>
+        <a href="#cards" className="link-button">GET STARTED</a>
       </div>
     </div>
   );

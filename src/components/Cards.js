@@ -71,7 +71,7 @@ function Cards() {
   }
 
   return (
-    <div className='cards'>
+    <div className='cards' id='cards'>
       <h1>Check out these epic Destinations!</h1>
       <h2>Or filter by date</h2>
 
@@ -91,7 +91,7 @@ function Cards() {
 
       </div>
       <div id="warning">
-        <h1 className="warningText">"Start Drom" must be before "End Date"!</h1>
+        <h1 className="warningText">"Start Date" must be before "End Date"!</h1>
       </div>
       <div className='cards__container' >
         <div className='cards__wrapper'>
