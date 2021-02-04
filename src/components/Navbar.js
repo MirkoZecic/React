@@ -11,9 +11,9 @@ function Navbar() {
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
       setButton(true);
+    } else {
+      setButton(false);
     }
   };
 
@@ -41,11 +41,7 @@ function Navbar() {
               </Link>
             </li>
             <li className='nav-item'>
-              <Link
-                to='/contact'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
+              <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
                 Contact
               </Link>
             </li>            
